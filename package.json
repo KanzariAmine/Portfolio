@@ -3,9 +3,35 @@
   "version": "1.0.0",
   "description": "Responsive portfolio website",
   "main": "index.js",
+  "extends": "stylelint-config-standard",
+  "rules": {
+    "at-rule-no-unknown": [
+      true,
+      {
+        "ignoreAtRules": [
+          "extends",
+          "ignores"
+        ]
+      }
+    ],
+    "indentation": "tab",
+    "number-leading-zero": null,
+    "unit-whitelist": [
+      "em",
+      "rem",
+      "s"
+    ]
+  },
   "scripts": {
-    "sass": "node-sass -w scss/ -o dist/css/ --recursive"
+    "sass": "node-sass -w scss/ -o dist/css/ --recursive",
+    "fix-code": "prettier-eslint --write 'src/**/*.{js}' ",
+    "fix-styles": "prettier-stylelint --write 'src/**/*.{css,scss}' "
   },
   "author": "Mahmoud Amine Kanzari",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "prettier-eslint": "^9.0.0",
+    "prettier-eslint-cli": "^5.0.0",
+    "prettier-stylelint": "^0.4.2"
+  }
 }
